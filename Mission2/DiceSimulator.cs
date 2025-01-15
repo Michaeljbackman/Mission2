@@ -1,30 +1,26 @@
-namespace Mission2;
-
-// Simulate rolling two six-sided dice.
-// Store the results in an array.
-// Return the array to the main class.
-
-// Create a method SimulateRolls(int rolls) that:
-// Uses a Random object to generate dice rolls.
-// Updates an array to track the frequency of each result (2 through 12).
-// Returns the array.
-
-
-public class DiceSimulator
+namespace Mission2
 {
-    public int[] SimulateRoll(int rolls)
-    {
-        int[] results = new int[13];
-        
-        Random random = new Random();
-        for (int i = 0; i < rolls; i++)
-        {
-            int die1 = random.Next(1, 7);
-            int die2 = random.Next(1, 7);
-            int sum = die1 + die2;
+    // Simulate rolling two six-sided dice.
+    // Store the results in an array.
+    // Return the array to the main class.
 
-            results[sum]++;
+    public class DiceSimulator
+    {
+        public int[] SimulateRolls(int numberOfRolls)
+        {
+            // Array to store frequency counts for each sum (2 to 12)
+            int[] rollResults = new int[13]; 
+
+            Random randomGenerator = new Random();  // Random number generator for dice rolls
+            for (int rollIndex = 0; rollIndex < numberOfRolls; rollIndex++)
+            {
+                int die1 = randomGenerator.Next(1, 7); 
+                int die2 = randomGenerator.Next(1, 7); 
+                int sumOfDice = die1 + die2;            // Sum of the two dice rolls
+
+                rollResults[sumOfDice]++; // Increment
+            }
+            return rollResults;
         }
-        return results;
     }
 }
